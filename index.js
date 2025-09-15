@@ -38,6 +38,10 @@ function removeHtmlTags(html) {
     .trim();
 }
 
+app.get("/health", (req, res) => {
+  res.json({ message: "server is running" });
+});
+
 app.post("/webhook", upload.any(), async (req, res) => {
   try {
     const emailData = req.body || {};
